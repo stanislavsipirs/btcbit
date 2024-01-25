@@ -67,4 +67,14 @@ class NoteSpec extends Specification {
         then:
         thrown InvalidNoteException
     }
+
+    def 'should display note correctly'() {
+        expect:
+        note.toString() == result
+
+        where:
+        note            | result
+        Note.of(1, 1)   | '[1,1]'
+        Note.of(-1, -1) | '[-1,-1]'
+    }
 }
